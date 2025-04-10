@@ -8,7 +8,7 @@ This guide provides an educational overview and technical walkthrough of three k
 - [Retrieval-Augmented Generation (RAG)](#retrieval-augmented-generation-rag)
 - [Cache-Augmented Generation (CAG)](#cache-augmented-generation-cag)
 - [Fine-Tuning](#fine-tuning)
-- 
+
 ## Introduction: Why Enhance LLMs?
 
 While large language models are incredibly powerful, they have limitations:
