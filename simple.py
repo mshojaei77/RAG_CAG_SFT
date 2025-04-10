@@ -11,6 +11,15 @@ def load_knowledge_base(file_path):
         return file.read()
 
 def query_with_cag(knowledge_base, query, model="gpt-4o", temperature=0.2, max_tokens=500):
+    # Conceptually, this resembles Cache-Augmented Generation (CAG)
+    # because we are providing the entire knowledge base as context in the prompt.
+    # However, the actual caching mechanism (KV Caching) is handled *internally* by the OpenAI API.
+    # We are not explicitly pre-computing or managing the KV cache like in the transformer-based example.
+    # OpenAI's infrastructure likely caches parts of the prompt (including the knowledge base)
+    # to speed up processing if the same base context is used repeatedly,
+    # but this is an optimization on their end, not direct user-controlled CAG.
+    # The effectiveness depends on the API's internal caching strategy and whether the context fits.
+
     system_message = "You are an AI assistant with expert knowledge. Answer questions based only on the provided context."
     prompt = f"Context (this is your knowledge base, use this information to answer the question):\n{knowledge_base}\n\nQuery: {query}"
 
